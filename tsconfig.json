@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+      "target": "ES2020",          // Versão do JavaScript alvo
+      "module": "CommonJS",        // Sistema de módulos
+      "outDir": "./dist",          // Pasta de saída dos arquivos compilados
+      "rootDir": "./src",          // Pasta de entrada dos arquivos TypeScript
+      "strict": true,              // Habilita todas as verificações de tipo
+      "esModuleInterop": true,     // Compatibilidade com módulos CommonJS/ES6
+      "skipLibCheck": true,        // Ignora verificação de tipos em bibliotecas
+      "forceConsistentCasingInFileNames": true,
+      "moduleResolution": "node",  // Método de resolução de módulos
+      "baseUrl": ".",              // Caminho base para imports
+      "paths": {
+        "*": ["node_modules/*"]    // Mapeamento de caminhos
+      },
+      "types": ["node"],           // Tipos globais incluídos
+      "typeRoots": [               // Caminhos para declarações de tipos
+        "./node_modules/@types",
+        "./src/types"
+      ]
+    },
+    "include": ["src/**/*.ts"],    // Arquivos a serem compilados
+    "exclude": ["node_modules"]    // Arquivos ignorados
+  }
