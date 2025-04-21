@@ -1,0 +1,69 @@
+openapi: 3.0.0
+info:
+  title: Tax Document API
+  version: 1.0.0
+paths:
+  part4-integration.vercel.app/api/auth/login: #url to get token
+    post:
+      summary: User login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: "admin"
+                password:
+                  type: string
+                  example: "12345678"
+      responses:
+        200:
+          description: Successful login
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: json
+                    example:
+                      token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+  part4-integration.vercel.app/api/search:
+    post:
+      summary: Semantic search in tax documents
+        - multipart/form-data
+      parameters:
+        - name: file
+          in: formData
+          type: file
+          required: true
+      responses:
+        200:
+          description: List of similar documents
+          content:
+            application/json:
+              example:
+                - id: "doc_123"
+                  similarity: 0.92
+                  content: "W-2 form instructions..."
+
+  part4-integration.vercel.app/api/classify:
+    post:
+      summary: Classify tax document
+      consumes:
+        - multipart/form-data
+      parameters:
+        - name: file
+          in: formData
+          type: file
+          required: true
+      responses:
+        200:
+          description: Classification result
+          content:
+            application/json:
+              example:
+                type: "W-2"
+                confidence: 0.95

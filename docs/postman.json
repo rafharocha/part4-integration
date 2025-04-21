@@ -1,0 +1,38 @@
+{
+    "info": {
+      "_postman_id": "...",
+      "name": "Tax API Collection",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Semantic Search",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Authorization",
+              "value": "Bearer {{JWT_TOKEN}}"
+            }
+          ],
+
+          "url": "{{API_URL}}/api/search"
+        }
+      },
+        {
+            "name": "Classify",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{JWT_TOKEN}}"
+                    }
+                ],
+                "url": "{{API_URL}}/api/classify"
+
+            }
+        }
+
+    ]
+  }
